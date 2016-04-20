@@ -8,7 +8,7 @@ from math import log
 
 stopwords=[x.encode('utf-8') for x in stopwords.words('english')]
 tkzr=RegexpTokenizer(r'\w+')
-f=open('C:\Users\keshs\Desktop\M.S Data Science\Sentiment Analysis\Files\yelp_academic_dataset_review_preprocessed.json','r')
+f=open('Path\yelp_academic_dataset_review_preprocessed.json','r')
 line=f.readline()
 all_review_words=[]
 pos_review_words=[]
