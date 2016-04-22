@@ -1,0 +1,32 @@
+import tweepy
+import json
+from tweepy import OAuthHandler
+from pymongo import MongoClient
+
+consumer_key=''
+consumer_secret=''
+access_token=''
+access_secret=''
+
+auth=OAuthHandler(consumer_key,consumer_secret)
+auth.set_access_token(access_token,access_secret)
+
+client=MongoClient('localhost',27017)
+db=client['Electiondb']
+collection=db['Testcollection']
+
+api=tweepy.API(auth)
+#nw={}
+for status in tweepy.Cursor(api.user_timeline,id='realDonaldTrump').items(1000):
+    collection.insert(status._json)
+    
+for status in tweepy.Cursor(api.user_timeline,id='HillaryClinton').items(1000):
+    collection.insert(status._json)
+    
+for status in tweepy.Cursor(api.user_timeline,id='tedcruz').items(1000):
+    collection.insert(status._json)
+    
+for status in tweepy.Cursor(api.user_timeline,id='SenSanders').items(1000):
+    collection.insert(status._json)
+
+client.close()
