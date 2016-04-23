@@ -97,7 +97,7 @@ def vectorize_data(Bag_of_words,data):
 
 def SVM_Classifier(Train_data_vc,Train_label,Test_data_vc,Test_label,start):
     print("Classifier being fitted\n")
-    clf=OneVsRestClassifier(SVC(C=1,kernel='rbf',gamma=1,verbose=False,probability=False))
+    clf=OneVsRestClassifier(SVC(C=1,kernel='linear',gamma=1,verbose=False,probability=False))
     clf.fit(Train_data_vc,Train_label)
     print("\nClassifier fitted.\n")
     #predicted=cross_validation.cross_val_predict(clf,Train_data_vc,Train_label,cv=5)
