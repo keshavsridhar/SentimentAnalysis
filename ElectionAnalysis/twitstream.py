@@ -5,7 +5,7 @@ import csv
 
 def ExtractTweets(users):
     #Enter server details below:
-    client=MongoClient('mongodb://z604_final:lanif_406z@45.33.57.4:27017/tweetDB')
+    client=MongoClient('#')
     db=client["tweetDB"]
     #Candidates tweets to extract from MongoDB
     td={}
@@ -40,7 +40,7 @@ if __name__=='__main__':
     hashtags=ExtractHashtags(tweetdict)
     hashfreq=CalcHashFreq(hashtags)
     #Writing out the frequencies to a file to be used later
-    with open(r'C:\Users\keshs\Desktop\tweetstream.csv','w') as file:
+    with open(r'#','w') as file:
         f=csv.writer(file)
         for i in hashfreq.keys():
             s=dict(hashfreq[i])
