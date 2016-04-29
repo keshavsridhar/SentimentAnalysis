@@ -18,7 +18,7 @@ def ExtractTweets(users,conn,dbname):
     db=client[dbname]
     #Candidates tweets to extract from MongoDB
     td=[]
-    #Creating a dictionary to hold all the tweets from the presidential candidates
+    #Creating a list of lists to hold all the tweets from the presidential candidates
     for i in users:
         collection=db[i]
         #We care only for english tweets, hence the language filter
