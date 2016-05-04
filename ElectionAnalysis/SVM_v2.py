@@ -80,8 +80,8 @@ def SVM_Classifier(Train_data_vc,Train_label,Test_data_vc,Test_label,start):
     clf.fit(Train_data_vc,Train_label)
     print("\nClassifier fitted.\n")
     #predicted=cross_validation.cross_val_predict(clf,Train_data_vc,Train_label,cv=5)
-    predicted=cross_validation.cross_val_predict(clf,Test_data_vc,Test_label,cv=5)
-    
+    #predicted=cross_validation.cross_val_predict(clf,Test_data_vc,Test_label,cv=5)
+    predicted=clf.predict(Test_data_vc)
     print "Accuracy score:\n",metrics.accuracy_score(Test_label,predicted)
     print "Precision score:\n",metrics.precision_score(Test_label,predicted)
     print "Recall score:\n",metrics.recall_score(Test_label,predicted)
